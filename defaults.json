@@ -1,0 +1,21 @@
+{
+  "esclient": {
+    "apiVersion": "1.1",
+    "keepAlive": true,
+    "requestTimeout": "120000",
+    "hosts": [{
+      "env": "development",
+      "protocol": "http",
+      "host": "localhost",
+      "port": 9200
+    }],
+    "log": [{
+      "type": "stdio",
+      "level": [ "error", "warning" ]
+    },{
+      "type": "file",
+      "level": [ "error", "warning" ],
+      "path": "esclient.log"
+    }]
+  }
+}
