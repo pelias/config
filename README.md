@@ -52,14 +52,20 @@ var settings = config.generate( true );
 The generated config will be a [mergeable](https://github.com/pelias/mergeable) object:
 
 ```javascript
+var config = require('pelias-config'),
+    settings = config.generate();
+
 // strip out all functions etc and produce a plain js object copy
-var copy = config.export();
+var copy = settings.export();
 ```
 
 You can pretty print the generated config:
 
 ```javascript
-console.log( config.stringify() );
+var config = require('pelias-config'),
+    settings = config.generate();
+
+console.log( settings.stringify() );
 ```
 
 see https://github.com/pelias/mergeable for a full list of methods
