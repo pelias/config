@@ -47,6 +47,23 @@ var settings = config.generate();
 var settings = config.generate( true );
 ```
 
+## Exporting & Debugging
+
+By default the config will be a [mergeable](https://github.com/pelias/mergeable) object:
+
+```javascript
+// strip out all functions etc and produce a plain js object copy
+var copy = config.export();
+```
+
+You can pretty print the generated config:
+
+```javascript
+console.log( config.stringify() );
+```
+
+@see https://github.com/pelias/mergeable for a full list of methods
+
 ## NPM Module
 
 The `pelias-config` npm module can be found here:
