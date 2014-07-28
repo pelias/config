@@ -47,9 +47,9 @@ var settings = config.generate();
 var settings = config.generate( true );
 ```
 
-## Exporting & Debugging
+### Exporting & Debugging
 
-By default the config will be a [mergeable](https://github.com/pelias/mergeable) object:
+The generated config will be a [mergeable](https://github.com/pelias/mergeable) object:
 
 ```javascript
 // strip out all functions etc and produce a plain js object copy
@@ -62,7 +62,7 @@ You can pretty print the generated config:
 console.log( config.stringify() );
 ```
 
-@see https://github.com/pelias/mergeable for a full list of methods
+see https://github.com/pelias/mergeable for a full list of methods
 
 ## NPM Module
 
