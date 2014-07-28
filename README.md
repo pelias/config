@@ -34,7 +34,7 @@ sysadmin and ops engineers can override the default settings on the server by la
 $ PELIAS_CONFIG=/path/to/settings/file.json node app.js
 ```
 
-Note: by default the merge is shallow (it simply replaces all the top-level properties).
+Note: by default the merge is shallow (it simply replaces the defaults with any top-level properties which are present in the env config, leaving the rest unchanged).
 The developer can enable deep merging; however that isn't recommended as the env config will have to be modified every time the app config changes.
 
 ```javascript
