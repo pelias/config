@@ -35,7 +35,7 @@ $ PELIAS_CONFIG=/path/to/settings/file.json node app.js
 ```
 
 Note: by default the merge is shallow (it simply replaces all the top-level properties).
-The developer can enable deep merging; however that isn't recommended as env config will have to be modified every time the app config changes.
+The developer can enable deep merging; however that isn't recommended as the env config will have to be modified every time the app config changes.
 
 ```javascript
 var config = require('pelias-config');
