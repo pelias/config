@@ -49,7 +49,9 @@ var settings = config.generate( true );
 
 You can test the result of merging your env config with the following bash oneliner:
 ```bash
-$ npm install pelias-config; PELIAS_CONFIG=/path/config.json node -e "console.log( require('pelias-config').generate().stringify() );"
+npm install pelias-config; \
+PELIAS_CONFIG=/path/config.json \
+node -e "console.log( require('pelias-config').generate().stringify() );";
 ```
 
 ### Exporting & Debugging
