@@ -1,19 +1,13 @@
 
-var config = require('../');
+var config = require('../'),
+    defaults = require('../config/defaults');
 
 module.exports.interface = {};
 
-module.exports.interface.Config = function(test, common) {
-  test('Class Config', function(t) {
-    t.equal(typeof config.Config, 'function', 'valid function');
-    t.equal(config.Config.length, 1, 'consistent arguments length');
-    t.end();
-  });
-}
-
 module.exports.interface.defaults = function(test, common) {
-  test('defaults()', function(t) {
+  test('defaults', function(t) {
     t.equal(typeof config.defaults, 'object', 'valid function');
+    t.deepEqual(config.defaults, defaults, 'valid function');
     t.end();
   });
 }

@@ -4,7 +4,7 @@ var common = {};
 
 var tests = [
   require('./interface.js'),
-  require('./Config.js')
+  require('./generate.js')
 ];
 
 tests.map(function(t) {
