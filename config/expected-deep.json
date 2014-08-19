@@ -1,27 +1,27 @@
 {
-"esclient": {
-  "apiVersion": "1.1",
-  "keepAlive": true,
-  "requestTimeout": "120000",
-  "hosts": [{
-     "env": "production",
-     "protocol": "http",
-     "host": "localhost",
-     "port": 9200
-   },{
-     "env": "production",
-     "protocol": "http",
-     "host": "localhost",
-     "port": 9300
-  }],
-  "log": [{
-    "type": "stdio",
-    "level": [ "error", "warning" ]
-  },{
-    "type": "file",
-    "level": [ "error", "warning" ],
-    "path": "esclient.log"
-  }]
+  "esclient": {
+    "apiVersion": "1.1",
+    "keepAlive": true,
+    "requestTimeout": "120000",
+    "hosts": [{
+       "env": "production",
+       "protocol": "http",
+       "host": "localhost",
+       "port": 9200
+     },{
+       "env": "production",
+       "protocol": "http",
+       "host": "localhost",
+       "port": 9300
+    }],
+    "log": [{
+      "type": "stdio",
+      "level": [ "error", "warning" ]
+    },{
+      "type": "file",
+      "level": [ "error", "warning" ],
+      "path": "esclient.log"
+    }]
   },
   "imports": {
     "geonames": {
