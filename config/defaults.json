@@ -17,5 +17,32 @@
       "level": [ "error", "warning" ],
       "path": "esclient.log"
     }]
+  },
+  "imports": {
+    "geonames": {
+      "datapath": "/mnt/pelias/geonames",
+      "import": [
+        { "type": "geoname", "filename": "allCountries.zip" }
+      ]
+    },
+    "quattroshapes": {
+      "datapath": "/mnt/pelias/quattroshapes",
+      "import": [
+        { "type": "admin0", "filename": "admin0.shp" },
+        { "type": "admin1", "filename": "admin1.shp" },
+        { "type": "admin2", "filename": "admin2.shp" },
+        { "type": "localadmin", "filename": "localadmin.shp" },
+        { "type": "localities", "filename": "localities.shp" },
+        { "type": "neighborhood", "filename": "neighborhoods.shp" }
+      ]
+    },
+    "openstreetmap": {
+      "datapath": "/mnt/pelias/openstreetmap",
+      "leveldbpath": "/tmp",
+      "import": [{
+        "type": { "node": "osmnode", "way": "osmway" },
+        "filename": "planet.osm.pbf"
+      }]
+    }
   }
 }
