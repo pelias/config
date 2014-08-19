@@ -1,0 +1,54 @@
+{
+"esclient": {
+  "apiVersion": "1.1",
+  "keepAlive": true,
+  "requestTimeout": "120000",
+  "hosts": [{
+     "env": "production",
+     "protocol": "http",
+     "host": "localhost",
+     "port": 9200
+   },{
+     "env": "production",
+     "protocol": "http",
+     "host": "localhost",
+     "port": 9300
+  }],
+  "log": [{
+    "type": "stdio",
+    "level": [ "error", "warning" ]
+  },{
+    "type": "file",
+    "level": [ "error", "warning" ],
+    "path": "esclient.log"
+  }]
+  },
+  "imports": {
+    "geonames": {
+      "datapath": "~/geonames",
+      "import": [{
+        "type": "geoname",
+        "filename": "GB.zip"
+      }]
+    },
+    "quattroshapes": {
+      "datapath": "~/quattroshapes",
+      "import": [
+        { "type": "admin0", "filename": "admin0.shp" },
+        { "type": "admin1", "filename": "admin1.shp" },
+        { "type": "admin2", "filename": "admin2.shp" },
+        { "type": "localadmin", "filename": "localadmin.shp" },
+        { "type": "localities", "filename": "localities.shp" },
+        { "type": "neighborhood", "filename": "neighborhoods.shp" }
+      ]
+    },
+    "openstreetmap": {
+      "datapath": "~/openstreetmap",
+      "leveldbpath": "/tmp/leveldb",
+      "import": [{
+         "type": { "node": "osmnode", "way": "osmway" },
+         "filename": "london.osm.pbf"
+      }]
+    }
+  }
+}

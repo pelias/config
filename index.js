@@ -12,11 +12,11 @@ var generate = function( deep ){
     return production;
   }
   return defaults;
-}
+};
 
 var config = {
   defaults: defaults,
-  generate: generate
-}
+  generate: generate.bind( null, true )
+};
 
 module.exports = config;
