@@ -4,10 +4,15 @@
     "keepAlive": true,
     "requestTimeout": "120000",
     "hosts": [{
-      "env": "development",
-      "protocol": "http",
-      "host": "localhost",
-      "port": 9200
+       "env": "production",
+       "protocol": "http",
+       "host": "localhost",
+       "port": 9200
+     },{
+       "env": "production",
+       "protocol": "http",
+       "host": "localhost",
+       "port": 9300
     }],
     "log": [{
       "type": "stdio",
@@ -20,13 +25,14 @@
   },
   "imports": {
     "geonames": {
-      "datapath": "/mnt/pelias/geonames",
-      "import": [
-        { "type": "geoname", "filename": "allCountries.zip" }
-      ]
+      "datapath": "~/geonames",
+      "import": [{
+        "type": "geoname",
+        "filename": "GB.zip"
+      }]
     },
     "quattroshapes": {
-      "datapath": "/mnt/pelias/quattroshapes",
+      "datapath": "~/quattroshapes",
       "import": [
         { "type": "admin0", "filename": "admin0.shp" },
         { "type": "admin1", "filename": "admin1.shp" },
@@ -37,11 +43,11 @@
       ]
     },
     "openstreetmap": {
-      "datapath": "/mnt/pelias/openstreetmap",
-      "leveldbpath": "/tmp",
+      "datapath": "~/openstreetmap",
+      "leveldbpath": "/tmp/leveldb",
       "import": [{
-        "type": { "node": "osmnode", "way": "osmway" },
-        "filename": "planet.osm.pbf"
+         "type": { "node": "osmnode", "way": "osmway" },
+         "filename": "london.osm.pbf"
       }]
     }
   }
