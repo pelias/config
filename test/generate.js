@@ -7,13 +7,20 @@ module.exports.generate = {};
 
 module.exports.generate.development = function(test, common) {
   test('development', function(t) {
+
+    // set the localpath
+    config.setLocalPath( '' );
+
     var c = config.generate();
     t.equal(typeof config, 'object', 'valid function');
-    t.deepEqual(c, defaults, 'valid function');
+    t.deepEqual(c, defaults, 'defaults');
     t.equal(typeof c.esclient, 'object', 'valid property');
     t.equal(Object.keys(c.esclient).length, 5, 'copied all default properties');
     t.equal(c.esclient.hosts.length, 1, 'defaults');
     t.end();
+
+    // reset localpath
+    config.setLocalPath( '~/pelias.json' );
   });
 };
 

@@ -2,7 +2,7 @@
 var fs = require('fs'),
     Mergeable = require('mergeable'),
     defaults = new Mergeable( __dirname + '/config/defaults.json' ),
-    localpath = '~/pelias.json';
+    localpath;
 
 // allow the ops guys to override settings on the server
 var generate = function( deep ){
@@ -30,8 +30,10 @@ var config = {
   defaults: defaults,
   generate: generate.bind( null, true ),
   setLocalPath: function( path ){
-    localpath = path;
+    localpath = path.replace( '~', process.env.HOME );
+    return localpath;
   }
 };
 
+config.setLocalPath( '~/pelias.json' );
 module.exports = config;
