@@ -15,7 +15,7 @@ module.exports.generate.development = function(test, common) {
     t.equal(c.esclient.hosts.length, 1, 'defaults');
     t.end();
   });
-}
+};
 
 module.exports.generate.production = function(test, common) {
 
@@ -68,15 +68,77 @@ module.exports.generate.production = function(test, common) {
     // unset the PELIAS_CONFIG env var
     delete process.env['PELIAS_CONFIG'];
   });
-}
+};
+
+module.exports.generate.local = function(test, common) {
+
+  test('local deep merge', function(t) {
+
+    // set the localpath
+    config.setLocalPath( path.resolve( __dirname + '/../config/local.json' ) );
+
+    var c = config.generate( true );
+    t.equal(typeof config, 'object', 'valid function');
+    t.notDeepEqual(c, defaults, 'valid function');
+    t.equal(typeof c.esclient, 'object', 'valid property');
+    t.equal(Object.keys(c.esclient).length, 5, 'keep all default properties');
+    t.equal(c.imports.geonames.datapath, '/media/hdd', 'local paths');
+    t.equal(c.imports.geonames.import[0].filename, 'GB.zip', 'local paths');
+    t.equal(c.imports.quattroshapes.datapath, '/media/hdd/simplified', 'local paths');
+    t.equal(c.imports.openstreetmap.datapath, '/media/hdd/osm/mapzen-metro', 'local paths');
+    t.equal(c.imports.openstreetmap.import[0].filename, 'london.osm.pbf', 'local paths');
+    t.end();
+
+    // reset localpath
+    config.setLocalPath( '~/pelias.json' );
+  });
+
+  test('local deep merge as expected', function(t) {
+
+    var expected = require('../config/expected-deep.json');
+
+    // set the localpath
+    config.setLocalPath( path.resolve( __dirname + '/../config/env.json' ) );
+
+    var c = config.generate( true );
+    t.deepEqual(c.export(), expected, 'merged as expected');
+    t.end();
+
+    // reset localpath
+    config.setLocalPath( '~/pelias.json' );
+  });
+
+  // if both local and ENV are set, only ENV should be merged
+  test('local does not override ENV', function(t) {
+
+    var expected = require('../config/expected-deep.json');
+
+    // set the PELIAS_CONFIG env var
+    process.env['PELIAS_CONFIG'] = path.resolve( __dirname + '/../config/env.json' );
+
+    // set the localpath
+    config.setLocalPath( path.resolve( __dirname + '/../config/local.json' ) );
+
+    var c = config.generate( true );
+    t.deepEqual(c.export(), expected, 'merged as expected');
+    t.equal(c.imports.geonames.datapath, '~/geonames', 'env paths still set');
+    t.end();
+
+    // reset localpath
+    config.setLocalPath( '~/pelias.json' );
+
+    // unset the PELIAS_CONFIG env var
+    delete process.env['PELIAS_CONFIG'];
+  });
+};
 
 module.exports.all = function (tape, common) {
 
   function test(name, testFunction) {
-    return tape('generate() ' + name, testFunction)
+    return tape('generate() ' + name, testFunction);
   }
 
   for( var testCase in module.exports.generate ){
     module.exports.generate[testCase](test, common);
   }
-}
+};

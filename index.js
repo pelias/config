@@ -1,9 +1,13 @@
 
-var Mergeable = require('mergeable');
-var defaults = new Mergeable( __dirname + '/config/defaults.json' );
+var fs = require('fs'),
+    Mergeable = require('mergeable'),
+    defaults = new Mergeable( __dirname + '/config/defaults.json' ),
+    localpath = '~/pelias.json';
 
 // allow the ops guys to override settings on the server
 var generate = function( deep ){
+
+  // load config from ENV
   if( process.env.hasOwnProperty('PELIAS_CONFIG') ){
     var production = new Mergeable( defaults.export() );
     var path = process.env['PELIAS_CONFIG'];
@@ -11,12 +15,23 @@ var generate = function( deep ){
     else { production.shallowMergeFromPath( path ); }
     return production;
   }
+
+  // load config from local file
+  else if( fs.existsSync( localpath ) ){
+    var local = new Mergeable( defaults.export() );
+    if( true === deep ){ local.deepMergeFromPath( localpath ); }
+    else { local.shallowMergeFromPath( localpath ); }
+    return local;
+  }
   return defaults;
 };
 
 var config = {
   defaults: defaults,
-  generate: generate.bind( null, true )
+  generate: generate.bind( null, true ),
+  setLocalPath: function( path ){
+    localpath = path;
+  }
 };
 
 module.exports = config;

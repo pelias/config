@@ -1,0 +1,20 @@
+{
+  "imports": {
+    "geonames": {
+      "datapath": "/media/hdd",
+      "import": [
+        { "type": "geoname", "filename": "GB.zip" }
+      ]
+    },
+    "quattroshapes": {
+      "datapath": "/media/hdd/simplified"
+    },
+    "openstreetmap": {
+      "datapath": "/media/hdd/osm/mapzen-metro",
+      "import": [{
+        "type": { "node": "osmnode", "way": "osmway" },
+        "filename": "london.osm.pbf"
+      }]
+    }
+  }
+}
