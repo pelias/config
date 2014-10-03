@@ -26,6 +26,14 @@ var config = require('pelias-config');
 var settings = config.generate();
 ```
 
+#### local config
+
+the easiest way to get a custom config is to create a file named `~/pelias.json`.
+
+you can copy the example file from here: https://github.com/pelias/config/blob/master/config/local.json
+
+this file will be checked for settings whenever you run imports and will override the defaults; it is particularly useful for specifying datasource paths during development.
+
 #### production settings
 
 sysadmin and ops engineers can override the default settings on the server by launching any code which requires this module by supplying an ENV var with the path to their custom json config.
