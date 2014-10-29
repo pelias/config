@@ -1,10 +1,7 @@
 {
   "imports": {
     "geonames": {
-      "datapath": "/media/hdd",
-      "import": [
-        { "type": "geoname", "filename": "GB.zip" }
-      ]
+      "datapath": "/media/hdd"
     },
     "quattroshapes": {
       "datapath": "/media/hdd/simplified"

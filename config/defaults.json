@@ -20,21 +20,10 @@
   },
   "imports": {
     "geonames": {
-      "datapath": "/mnt/pelias/geonames",
-      "import": [
-        { "type": "geoname", "filename": "allCountries.zip" }
-      ]
+      "datapath": "./data"
     },
     "quattroshapes": {
-      "datapath": "/mnt/pelias/quattroshapes",
-      "import": [
-        { "type": "admin0", "filename": "admin0.shp" },
-        { "type": "admin1", "filename": "admin1.shp" },
-        { "type": "admin2", "filename": "admin2.shp" },
-        { "type": "localadmin", "filename": "localadmin.shp" },
-        { "type": "localities", "filename": "localities.shp" },
-        { "type": "neighborhood", "filename": "neighborhoods.shp" }
-      ]
+      "datapath": "/mnt/pelias/quattroshapes"
     },
     "openstreetmap": {
       "datapath": "/mnt/pelias/openstreetmap",
