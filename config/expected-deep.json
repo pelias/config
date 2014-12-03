@@ -17,10 +17,6 @@
     "log": [{
       "type": "stdio",
       "level": [ "error", "warning" ]
-    },{
-      "type": "file",
-      "level": [ "error", "warning" ],
-      "path": "esclient.log"
     }]
   },
   "imports": {
