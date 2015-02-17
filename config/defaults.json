@@ -17,6 +17,9 @@
   "dbclient": {
     "statFrequency": 10000
   },
+  "logger": {
+    "level": "info"
+  },
   "imports": {
     "geonames": {
       "datapath": "./data"
