@@ -138,6 +138,49 @@ module.exports.generate.local = function(test, common) {
   });
 };
 
+module.exports.generate.paths = function(test, common) {
+
+  var expected = require('../config/expected-deep.json');
+
+  test('absolute paths supported for ENV var', function (t) {
+
+    // set the absolute PELIAS_CONFIG env var
+    process.env['PELIAS_CONFIG'] = path.resolve(__dirname + '/../config/env.json');
+
+    var c = config.generate();
+    t.deepEqual(c.export(), expected, 'loaded absolute file path');
+    t.end();
+
+    // unset the PELIAS_CONFIG env var
+    delete process.env['PELIAS_CONFIG'];
+  });
+
+  test('relative paths supported for ENV var', function (t) {
+
+    // set the relative PELIAS_CONFIG env var
+    process.env['PELIAS_CONFIG'] = './config/env.json';
+
+    var c = config.generate();
+    t.deepEqual(c.export(), expected, 'loaded relative file path');
+    t.end();
+
+    // unset the PELIAS_CONFIG env var
+    delete process.env['PELIAS_CONFIG'];
+  });
+
+  test('invalid paths in ENV var throws exception', function (t) {
+
+    // set the relative PELIAS_CONFIG env var
+    process.env['PELIAS_CONFIG'] = './config/doesnotexist.json';
+
+    t.throws(config.generate, 'exception thrown for invalid ENV var path');
+    t.end();
+
+    // unset the PELIAS_CONFIG env var
+    delete process.env['PELIAS_CONFIG'];
+  });
+};
+
 module.exports.all = function (tape, common) {
 
   function test(name, testFunction) {
