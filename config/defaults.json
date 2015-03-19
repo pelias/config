@@ -18,7 +18,9 @@
     "statFrequency": 10000
   },
   "logger": {
-    "level": "info"
+    "level": "info",
+    "timestamp": true,
+    "colorize": true
   },
   "acceptance-tests": {
     "endpoints": {
