@@ -22,6 +22,9 @@
   "dbclient": {
     "statFrequency": 10000
   },
+  "api": {
+    "accessLog": "common"
+  },
   "logger": {
     "level": "info",
     "timestamp": true,
