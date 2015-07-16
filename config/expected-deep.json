@@ -22,6 +22,22 @@
   "dbclient": {
     "statFrequency": 10000
   },
+  "api": {
+    "accessLog": "common"
+  },
+  "logger": {
+    "level": "info",
+    "timestamp": true,
+    "colorize": true
+  },
+  "acceptance-tests": {
+    "endpoints": {
+      "local": "http://localhost:3100/",
+      "dev": "http://pelias.dev.mapzen.com/",
+      "stage": "http://pelias.stage.mapzen.com/",
+      "prod": "http://pelias.mapzen.com/"
+    }
+  },
   "imports": {
     "geonames": {
       "datapath": "~/geonames"
