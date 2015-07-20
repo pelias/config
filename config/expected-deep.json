@@ -35,7 +35,8 @@
       "local": "http://localhost:3100/",
       "dev": "http://pelias.dev.mapzen.com/",
       "bigdev": "http://pelias.bigdev.mapzen.com/",
-      "prod": "http://pelias.mapzen.com/"
+      "prod": "http://pelias.mapzen.com/",
+      "prodbuild": "http://pelias.prodbuild.mapzen.com/"
     }
   },
   "imports": {
