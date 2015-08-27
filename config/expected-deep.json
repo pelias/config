@@ -1,6 +1,6 @@
 {
   "esclient": {
-    "apiVersion": "1.1",
+    "apiVersion": "1.7",
     "keepAlive": true,
     "requestTimeout": "120000",
     "hosts": [{
@@ -53,6 +53,12 @@
          "type": { "node": "osmnode", "way": "osmway" },
          "filename": "london.osm.pbf"
       }]
+    },
+    "openaddresses": {
+      "datapath": "~/openaddresses",
+      "files": [
+        "us-ny-nyc.csv"
+      ]
     }
   }
 }
