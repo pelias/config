@@ -51,9 +51,7 @@
     },
     "openaddresses": {
       "datapath": "/mnt/pelias/openaddresses",
-      "files": [
-        "us-ny-nyc.csv"
-      ]
+      "files": []
     }
   }
 }
