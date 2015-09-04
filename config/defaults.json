@@ -18,7 +18,9 @@
     "statFrequency": 10000
   },
   "api": {
-    "accessLog": "common"
+    "accessLog": "common",
+    "host": "http://pelias.mapzen.com/",
+    "version": "1.0"
   },
   "logger": {
     "level": "info",
@@ -27,11 +29,12 @@
   },
   "acceptance-tests": {
     "endpoints": {
-      "local": "http://localhost:3100/",
-      "dev": "http://pelias.dev.mapzen.com/",
-      "bigdev": "http://pelias.bigdev.mapzen.com/",
-      "prod": "http://pelias.mapzen.com/",
-      "prodbuild": "http://pelias.prodbuild.mapzen.com/"
+      "local": "http://localhost:3100/v1/",
+      "dev": "http://pelias.dev.mapzen.com/v1/",
+      "bigdev": "http://pelias.bigdev.mapzen.com/v1/",
+      "prod": "http://pelias.mapzen.com/v1/",
+      "prodbuild": "http://pelias.prodbuild.mapzen.com/v1/",
+      "beta": "http://pelias.beta.mapzen.com/"
     }
   },
   "imports": {
