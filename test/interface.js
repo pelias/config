@@ -4,7 +4,7 @@ var config = require('../'),
 
 module.exports.interface = {};
 
-module.exports.interface.defaults = function(test, common) {
+module.exports.interface.defaults = function(test) {
   test('defaults', function(t) {
     t.equal(typeof config.defaults, 'object', 'valid function');
     t.deepEqual(config.defaults, defaults, 'valid function');
@@ -12,14 +12,14 @@ module.exports.interface.defaults = function(test, common) {
   });
 };
 
-module.exports.interface.generate = function(test, common) {
+module.exports.interface.generate = function(test) {
   test('generate()', function(t) {
     t.equal(typeof config.generate, 'function', 'valid function');
     t.end();
   });
 };
 
-module.exports.interface.setLocalPath = function(test, common) {
+module.exports.interface.setLocalPath = function(test) {
   test('setLocalPath()', function(t) {
     t.equal(typeof config.setLocalPath, 'function', 'valid function');
     t.end();
@@ -33,13 +33,13 @@ module.exports.interface.setLocalPath = function(test, common) {
   });
 };
 
-module.exports.all = function (tape, common) {
+module.exports.all = function (tape) {
 
   function test(name, testFunction) {
     return tape('external interface: ' + name, testFunction);
   }
 
   for( var testCase in module.exports.interface ){
-    module.exports.interface[testCase](test, common);
+    module.exports.interface[testCase](test);
   }
 };

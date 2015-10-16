@@ -8,5 +8,5 @@ var tests = [
 ];
 
 tests.map(function(t) {
-  t.all(tape, common)
+  t.all(tape, common);
 });

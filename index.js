@@ -11,7 +11,7 @@ var generate = function( deep ){
   // load config from ENV
   if( process.env.hasOwnProperty('PELIAS_CONFIG') ){
     var production = new Mergeable( defaults.export() );
-    var p = path.resolve(process.env['PELIAS_CONFIG']);
+    var p = path.resolve(process.env.PELIAS_CONFIG);
     if( true === deep ){ production.deepMergeFromPath( p ); }
     else { production.shallowMergeFromPath( p ); }
     return production;
