@@ -55,6 +55,9 @@
     "openaddresses": {
       "datapath": "/mnt/pelias/openaddresses",
       "files": []
+    },
+    "whosonfirst": {
+      "datapath": "/mnt/pelias/whosonfirst"
     }
   }
 }

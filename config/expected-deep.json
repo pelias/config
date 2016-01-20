@@ -62,6 +62,9 @@
       "files": [
         "us-ny-nyc.csv"
       ]
+    },
+    "whosonfirst": {
+      "datapath": "~/whosonfirst"
     }
   }
 }

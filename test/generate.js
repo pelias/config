@@ -93,6 +93,7 @@ module.exports.generate.local = function(test) {
     t.equal(c.imports.quattroshapes.datapath, '/media/hdd/simplified', 'local paths');
     t.equal(c.imports.openstreetmap.datapath, '/media/hdd/osm/mapzen-metro', 'local paths');
     t.equal(c.imports.openstreetmap.import[0].filename, 'london.osm.pbf', 'local paths');
+    t.equal(c.imports.whosonfirst.datapath, '/media/hdd/whosonfirst', 'local paths');
     t.end();
 
     // reset localpath
