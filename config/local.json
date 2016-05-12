@@ -6,7 +6,6 @@
     "openstreetmap": {
       "datapath": "/media/hdd/osm/mapzen-metro",
       "import": [{
-        "type": { "node": "osmnode", "way": "osmway" },
         "filename": "london.osm.pbf"
       }]
     },

@@ -50,7 +50,6 @@
       "datapath": "~/openstreetmap",
       "leveldbpath": "/tmp/leveldb",
       "import": [{
-         "type": { "node": "osmnode", "way": "osmway" },
          "filename": "london.osm.pbf"
       }]
     },
