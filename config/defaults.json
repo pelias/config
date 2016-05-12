@@ -41,9 +41,6 @@
     "geonames": {
       "datapath": "./data"
     },
-    "quattroshapes": {
-      "datapath": "/mnt/pelias/quattroshapes"
-    },
     "openstreetmap": {
       "datapath": "/mnt/pelias/openstreetmap",
       "leveldbpath": "/tmp",

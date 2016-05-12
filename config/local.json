@@ -3,9 +3,6 @@
     "geonames": {
       "datapath": "/media/hdd"
     },
-    "quattroshapes": {
-      "datapath": "/media/hdd/simplified"
-    },
     "openstreetmap": {
       "datapath": "/media/hdd/osm/mapzen-metro",
       "import": [{

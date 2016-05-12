@@ -90,7 +90,6 @@ module.exports.generate.local = function(test) {
     t.equal(typeof c.esclient, 'object', 'valid property');
     t.equal(Object.keys(c.esclient).length, 5, 'keep all default properties');
     t.equal(c.imports.geonames.datapath, '/media/hdd', 'local paths');
-    t.equal(c.imports.quattroshapes.datapath, '/media/hdd/simplified', 'local paths');
     t.equal(c.imports.openstreetmap.datapath, '/media/hdd/osm/mapzen-metro', 'local paths');
     t.equal(c.imports.openstreetmap.import[0].filename, 'london.osm.pbf', 'local paths');
     t.equal(c.imports.whosonfirst.datapath, '/media/hdd/whosonfirst', 'local paths');
