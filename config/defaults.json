@@ -48,7 +48,6 @@
       "datapath": "/mnt/pelias/openstreetmap",
       "leveldbpath": "/tmp",
       "import": [{
-        "type": { "node": "osmnode", "way": "osmway" },
         "filename": "planet.osm.pbf"
       }]
     },
