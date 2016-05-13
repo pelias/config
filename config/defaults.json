@@ -39,10 +39,12 @@
   },
   "imports": {
     "geonames": {
-      "datapath": "./data"
+      "datapath": "./data",
+      "adminLookup": false
     },
     "openstreetmap": {
       "datapath": "/mnt/pelias/openstreetmap",
+      "adminLookup": false,
       "leveldbpath": "/tmp",
       "import": [{
         "filename": "planet.osm.pbf"
