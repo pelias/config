@@ -44,10 +44,12 @@
   },
   "imports": {
     "geonames": {
-      "datapath": "~/geonames"
+      "datapath": "~/geonames",
+      "adminLookup": false
     },
     "openstreetmap": {
       "datapath": "~/openstreetmap",
+      "adminLookup": false,
       "leveldbpath": "/tmp/leveldb",
       "import": [{
          "filename": "london.osm.pbf"
