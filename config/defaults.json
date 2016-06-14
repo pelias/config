@@ -23,7 +23,7 @@
     "version": "1.0"
   },
   "logger": {
-    "level": "info",
+    "level": "debug",
     "timestamp": true,
     "colorize": true
   },
