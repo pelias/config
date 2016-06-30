@@ -28,7 +28,7 @@
     "version": "1.0"
   },
   "logger": {
-    "level": "info",
+    "level": "debug",
     "timestamp": true,
     "colorize": true
   },
@@ -44,16 +44,14 @@
   },
   "imports": {
     "geonames": {
-      "datapath": "~/geonames"
-    },
-    "quattroshapes": {
-      "datapath": "~/quattroshapes"
+      "datapath": "~/geonames",
+      "adminLookup": false
     },
     "openstreetmap": {
       "datapath": "~/openstreetmap",
+      "adminLookup": false,
       "leveldbpath": "/tmp/leveldb",
       "import": [{
-         "type": { "node": "osmnode", "way": "osmway" },
          "filename": "london.osm.pbf"
       }]
     },

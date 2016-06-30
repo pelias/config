@@ -23,7 +23,7 @@
     "version": "1.0"
   },
   "logger": {
-    "level": "info",
+    "level": "debug",
     "timestamp": true,
     "colorize": true
   },
@@ -39,16 +39,14 @@
   },
   "imports": {
     "geonames": {
-      "datapath": "./data"
-    },
-    "quattroshapes": {
-      "datapath": "/mnt/pelias/quattroshapes"
+      "datapath": "./data",
+      "adminLookup": false
     },
     "openstreetmap": {
       "datapath": "/mnt/pelias/openstreetmap",
+      "adminLookup": false,
       "leveldbpath": "/tmp",
       "import": [{
-        "type": { "node": "osmnode", "way": "osmway" },
         "filename": "planet.osm.pbf"
       }]
     },
