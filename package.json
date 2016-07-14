@@ -7,9 +7,9 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "units": "node test/run.js | tap-spec",
-    "test": "npm run units",
     "lint": "jshint .",
+    "test": "npm run units",
+    "units": "node test/run.js | tap-spec",
     "validate": "npm ls"
   },
   "repository": {
