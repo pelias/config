@@ -9,6 +9,7 @@
   "scripts": {
     "lint": "jshint .",
     "test": "npm run units",
+    "travis": "npm test",
     "units": "node test/run.js | tap-spec",
     "validate": "npm ls"
   },
