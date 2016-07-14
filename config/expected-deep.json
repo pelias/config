@@ -24,8 +24,12 @@
   },
   "api": {
     "accessLog": "common",
+    "indexName": "pelias",
     "host": "http://pelias.mapzen.com/",
     "version": "1.0"
+  },
+  "schema": {
+    "indexName": "pelias"
   },
   "logger": {
     "level": "debug",
