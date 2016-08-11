@@ -58,6 +58,10 @@
       "datapath": "/mnt/pelias/openaddresses",
       "files": []
     },
+    "polyline": {
+      "datapath": "/mnt/pelias/polyline",
+      "files": []
+    },
     "whosonfirst": {
       "datapath": "/mnt/pelias/whosonfirst"
     }

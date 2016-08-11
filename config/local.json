@@ -15,6 +15,12 @@
         "us-ny-nyc.csv"
       ]
     },
+    "polyline": {
+      "datapath": "~/polyline",
+      "files": [
+        "road_network.polylines"
+      ]
+    },
     "whosonfirst": {
       "datapath": "/media/hdd/whosonfirst"
     }
