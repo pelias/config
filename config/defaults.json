@@ -56,10 +56,12 @@
     },
     "openaddresses": {
       "datapath": "/mnt/pelias/openaddresses",
+      "adminLookup": false,
       "files": []
     },
     "polyline": {
       "datapath": "/mnt/pelias/polyline",
+      "adminLookup": false,
       "files": []
     },
     "whosonfirst": {

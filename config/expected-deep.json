@@ -61,12 +61,14 @@
     },
     "openaddresses": {
       "datapath": "~/openaddresses",
+      "adminLookup": false,
       "files": [
         "us-ny-nyc.csv"
       ]
     },
     "polyline": {
       "datapath": "~/polyline",
+      "adminLookup": false,
       "files": [
         "road_network.polylines"
       ]
