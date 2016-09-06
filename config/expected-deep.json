@@ -29,6 +29,7 @@
     "version": "1.0"
   },
   "schema": {
+    "locales": ["en"],
     "indexName": "pelias"
   },
   "logger": {
