@@ -65,7 +65,8 @@
       "files": []
     },
     "whosonfirst": {
-      "datapath": "/mnt/pelias/whosonfirst"
+      "datapath": "/mnt/pelias/whosonfirst",
+      "importVenues": false
     }
   }
 }
