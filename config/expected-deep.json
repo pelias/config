@@ -19,6 +19,16 @@
       "level": [ "error", "warning" ]
     }]
   },
+  "elasticsearch": {
+    "settings": {
+      "index": {
+        "number_of_replicas": "0",
+        "number_of_shards": "1",
+        "index_concurrency": "10",
+        "refresh_interval": "1m"
+      }
+    }
+  },
   "dbclient": {
     "statFrequency": 10000
   },
