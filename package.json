@@ -1,9 +1,9 @@
 {
   "name": "pelias-config",
   "author": "mapzen",
-  "version": "2.1.0",
   "description": "Configuration settings for Pelias",
   "homepage": "https://github.com/pelias/config",
+  "version": "0.0.0-semantic-release",
   "license": "MIT",
   "main": "index.js",
   "scripts": {
@@ -11,11 +11,12 @@
     "test": "npm run units",
     "travis": "npm test",
     "units": "node test/run.js | tap-spec",
-    "validate": "npm ls"
+    "validate": "npm ls",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/pelias/config.git"
+    "url": "https://github.com/pelias/config.git"
   },
   "keywords": [
     "pelias",
@@ -36,7 +37,8 @@
     "tape": "^4.5.0",
     "tap-spec": "^4.1.1",
     "precommit-hook": "^3.0.0",
-    "jshint": "2.9.3"
+    "jshint": "2.9.3",
+    "semantic-release": "^4.3.5"
   },
   "pre-commit": [
     "lint",
