@@ -29,7 +29,7 @@ var generate = function( deep ){
 
 var config = {
   defaults: defaults,
-  generate: generate.bind( null, true ),
+  generate: generate,
   setLocalPath: function( p ){
     localpath = p.replace( '~', process.env.HOME );
     return localpath;
