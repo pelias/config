@@ -58,7 +58,8 @@
   "imports": {
     "geonames": {
       "datapath": "~/geonames",
-      "adminLookup": false
+      "adminLookup": false,
+      "countryCode": "ALL"
     },
     "openstreetmap": {
       "datapath": "~/openstreetmap",

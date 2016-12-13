@@ -53,7 +53,8 @@
   "imports": {
     "geonames": {
       "datapath": "./data",
-      "adminLookup": false
+      "adminLookup": false,
+      "countryCode": "ALL"
     },
     "openstreetmap": {
       "datapath": "/mnt/pelias/openstreetmap",
