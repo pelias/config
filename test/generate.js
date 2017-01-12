@@ -89,6 +89,8 @@ module.exports.generate.local = function(test) {
     t.notDeepEqual(c, defaults, 'valid function');
     t.equal(typeof c.esclient, 'object', 'valid property');
     t.equal(Object.keys(c.esclient).length, 5, 'keep all default properties');
+    t.equal(c.interpolation.client.adapter, 'http', 'interpolation client');
+    t.equal(c.interpolation.client.host, 'http://localhost:9999', 'interpolation client');
     t.equal(c.imports.geonames.datapath, '/media/hdd', 'local paths');
     t.equal(c.imports.openstreetmap.datapath, '/media/hdd/osm/mapzen-metro', 'local paths');
     t.equal(c.imports.openstreetmap.import[0].filename, 'london.osm.pbf', 'local paths');

@@ -1,4 +1,10 @@
 {
+  "interpolation": {
+    "client": {
+      "adapter": "http",
+      "host": "http://localhost:9999"
+    }
+  },
   "imports": {
     "geonames": {
       "datapath": "/media/hdd"
