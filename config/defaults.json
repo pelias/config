@@ -23,6 +23,11 @@
       }
     }
   },
+  "interpolation": {
+    "client": {
+      "adapter": "null"
+    }
+  },
   "dbclient": {
     "statFrequency": 10000
   },
