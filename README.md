@@ -42,17 +42,18 @@ sysadmin and ops engineers can override the default settings on the server by la
 $ PELIAS_CONFIG=/path/to/settings/file.json node app.js
 ```
 
-Note: by default the merge is shallow (it simply replaces the defaults with any top-level properties which are present in the env config, leaving the rest unchanged).
-The developer can enable deep merging; however that isn't recommended as the env config will have to be modified every time the app config changes.
+Note: by default the merge is deep (it replaces the defaults with any properties that are present in the env config).
+The developer can disable deep merging to use only local configuration settings.
 
 ```javascript
 var config = require('pelias-config');
 
 // shallow merge config settings from a path supplied in the env var
-var settings = config.generate();
+var settings = config.generate( false );
 
 // deep merge config settings from a path supplied in the env var
 var settings = config.generate( true );
+var settings = config.generate();
 ```
 
 You can test the result of merging your env config with the following bash oneliner:
@@ -61,6 +62,10 @@ npm install pelias-config; \
 PELIAS_CONFIG=/path/config.json \
 node -e "console.log( require('pelias-config').generate().stringify() );";
 ```
+
+### Validation
+
+Aside from `deep`, the `generate` function takes an additional parameter named `schema` that uses [Joi](https://www.npmjs.com/package/joi) to validate that the configuration is useable.  An error is thrown if the generated configuration does not validate against the schema.  
 
 ### Exporting & Debugging
 
