@@ -4,10 +4,37 @@ var fs = require('fs'),
     Mergeable = require('mergeable'),
     defaults = new Mergeable( __dirname + '/config/defaults.json' ),
     localpath;
+const _ = require('lodash');
+const Joi = require('joi');
 
 // allow the ops guys to override settings on the server
-var generate = function( deep ){
+var generate = function( schema, deep ){
+  // if first parameter is a boolean, then it's deep, not a schema
+  if (_.isBoolean(schema)) {
+    deep = schema;
+    schema = undefined;
+  }
 
+  // deep defaults to true
+  if (deep === undefined) {
+    deep = true;
+  }
+
+  const config = getConfig(deep);
+
+  if (_.isObject(schema)) {
+    Joi.validate(config, schema, (err) => {
+      if (err) {
+        throw new Error(err.details[0].message);
+      }
+    });
+  }
+
+  return config;
+
+};
+
+function getConfig(deep) {
   // load config from ENV
   if( process.env.hasOwnProperty('PELIAS_CONFIG') ){
     var production = new Mergeable( defaults.export() );
@@ -25,11 +52,12 @@ var generate = function( deep ){
     return local;
   }
   return defaults;
-};
+
+}
 
 var config = {
   defaults: defaults,
-  generate: generate.bind( null, true ),
+  generate: generate,
   setLocalPath: function( p ){
     localpath = p.replace( '~', process.env.HOME );
     return localpath;

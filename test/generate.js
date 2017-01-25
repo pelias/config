@@ -2,6 +2,7 @@
 var path = require('path'),
     config = require('../'),
     defaults = require('../config/defaults');
+const Joi = require('joi');
 
 module.exports.generate = {};
 
@@ -181,6 +182,25 @@ module.exports.generate.paths = function(test) {
     // unset the PELIAS_CONFIG env var
     delete process.env.PELIAS_CONFIG;
   });
+};
+
+module.exports.generate.validate = (test) => {
+  test('non-validating schema should throw an error', (t) => {
+    t.throws(() => {
+      config.generate(Joi.boolean());
+    }, /"value" must be a boolean/);
+    t.end();
+
+  });
+
+  test('validating schema should not throw an error', (t) => {
+    t.doesNotThrow(() => {
+      config.generate(Joi.object().unknown(true));
+    });
+    t.end();
+
+  });
+
 };
 
 module.exports.all = function (tape) {
