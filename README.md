@@ -63,6 +63,10 @@ PELIAS_CONFIG=/path/config.json \
 node -e "console.log( require('pelias-config').generate().stringify() );";
 ```
 
+### Validation
+
+Aside from `deep`, the `generate` function takes an additional parameter named `schema` that uses [Joi](https://www.npmjs.com/package/joi) to validate that the configuration is useable.  An error is thrown if the generated configuration does not validate against the schema.  
+
 ### Exporting & Debugging
 
 The generated config will be a [mergeable](https://github.com/pelias/mergeable) object:
