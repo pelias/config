@@ -1,5 +1,7 @@
 ## Installation
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/pelias/config.svg)](https://greenkeeper.io/)
+
 ```bash
 $ npm install pelias-config
 ```
