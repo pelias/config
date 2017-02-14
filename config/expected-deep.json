@@ -61,6 +61,10 @@
     }
   },
   "imports": {
+    "adminLookup": {
+      "enabled": true,
+      "maxConcurrentRequests": 100
+    },
     "geonames": {
       "datapath": "~/geonames",
       "adminLookup": false,
