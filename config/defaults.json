@@ -62,12 +62,10 @@
     },
     "geonames": {
       "datapath": "./data",
-      "adminLookup": false,
       "countryCode": "ALL"
     },
     "openstreetmap": {
       "datapath": "/mnt/pelias/openstreetmap",
-      "adminLookup": false,
       "leveldbpath": "/tmp",
       "import": [{
         "filename": "planet.osm.pbf"
@@ -75,12 +73,10 @@
     },
     "openaddresses": {
       "datapath": "/mnt/pelias/openaddresses",
-      "adminLookup": false,
       "files": []
     },
     "polyline": {
       "datapath": "/mnt/pelias/polyline",
-      "adminLookup": false,
       "files": []
     },
     "whosonfirst": {

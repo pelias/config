@@ -67,12 +67,10 @@
     },
     "geonames": {
       "datapath": "~/geonames",
-      "adminLookup": false,
       "countryCode": "ALL"
     },
     "openstreetmap": {
       "datapath": "~/openstreetmap",
-      "adminLookup": false,
       "leveldbpath": "/tmp/leveldb",
       "import": [{
          "filename": "london.osm.pbf"
@@ -80,14 +78,12 @@
     },
     "openaddresses": {
       "datapath": "~/openaddresses",
-      "adminLookup": false,
       "files": [
         "us-ny-nyc.csv"
       ]
     },
     "polyline": {
       "datapath": "~/polyline",
-      "adminLookup": false,
       "files": [
         "road_network.polylines"
       ]
