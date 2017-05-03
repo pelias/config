@@ -201,6 +201,30 @@ module.exports.generate.validate = (test) => {
 
   });
 
+  test('returned config should have defaults applied and types converted', (t) => {
+    const localConfig = require('../');
+    localConfig.defaults.test = {
+      key_with_type_conversion: 'yes'
+    };
+
+    const schema = Joi.object().keys({
+      test: Joi.object().keys({
+        key_with_default: Joi.string().default('default value'),
+        key_with_type_conversion: Joi.boolean().default(true).truthy('yes').falsy('no'),
+        key_without_default: Joi.string()
+      })
+    }).unknown(true);
+
+    const validatedConfig = localConfig.generate(schema);
+
+    t.equals(validatedConfig.test.key_with_default, 'default value', 'default value should be used');
+    t.ok(typeof validatedConfig.test.key_with_type_conversion, 'boolean', 'should be boolean');
+    t.ok(validatedConfig.test.key_with_type_conversion, 'should be true');
+    t.equals(validatedConfig.test.key_without_default, undefined, 'no default');
+    t.end();
+
+  });
+
 };
 
 module.exports.all = function (tape) {

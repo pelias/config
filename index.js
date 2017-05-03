@@ -23,11 +23,14 @@ var generate = function( schema, deep ){
   const config = getConfig(deep);
 
   if (_.isObject(schema)) {
-    Joi.validate(config, schema, (err) => {
-      if (err) {
-        throw new Error(err.details[0].message);
-      }
-    });
+    const result = Joi.validate(config, schema);
+
+    if (result.error) {
+      throw new Error(result.error.details[0].message);
+    }
+
+    return result.value;
+
   }
 
   return config;
