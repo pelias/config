@@ -32,7 +32,7 @@
     "elasticsearch": ">=1.1.1"
   },
   "dependencies": {
-    "joi": "^11.0.1",
+    "joi": "^13.0.0",
     "lodash": "^4.17.4",
     "mergeable": "0.0.0"
   },
