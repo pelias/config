@@ -38,6 +38,7 @@
     "indexName": "pelias",
     "version": "1.0",
     "targets": {
+      "auto_discover": false,
       "layers_by_source": {
         "openstreetmap": [ "address", "venue", "street" ],
         "openaddresses": [ "address" ],
