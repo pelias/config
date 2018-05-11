@@ -12,7 +12,6 @@
     "travis": "npm run check-dependencies && npm test",
     "units": "node test/run.js | tap-spec",
     "validate": "npm ls",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "check-dependencies": "node_modules/.bin/npm-check --production"
   },
   "repository": {
