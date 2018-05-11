@@ -3,7 +3,7 @@
   "author": "mapzen",
   "description": "Configuration settings for Pelias",
   "homepage": "https://github.com/pelias/config",
-  "version": "0.0.0-semantic-release",
+  "version": "0.0.0-development",
   "license": "MIT",
   "main": "index.js",
   "scripts": {
