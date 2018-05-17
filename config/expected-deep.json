@@ -41,7 +41,36 @@
     "textAnalyzer": "libpostal",
     "indexName": "pelias",
     "host": "http://pelias.mapzen.com/",
-    "version": "1.0"
+    "version": "1.0",
+    "targets": {
+      "auto_discover": false,
+      "layers_by_source": {
+        "openstreetmap": [ "address", "venue", "street" ],
+        "openaddresses": [ "address" ],
+        "geonames": [
+          "country", "macroregion", "region", "county", "localadmin", "locality", "borough", 
+          "neighbourhood", "venue"
+        ],
+        "whosonfirst": [
+          "continent", "empire", "country", "dependency", "macroregion", "region", "locality",
+          "localadmin", "macrocounty", "county", "macrohood", "borough", "neighbourhood", 
+          "microhood", "disputed", "venue", "postalcode", "continent", "ocean", "marinearea"
+        ]
+      },
+      "source_aliases": {
+        "osm": [ "openstreetmap" ],
+        "oa":  [ "openaddresses" ],
+        "gn":  [ "geonames" ],
+        "wof": [ "whosonfirst" ]
+      },
+      "layer_aliases": {
+        "coarse": [
+          "continent", "empire", "country", "dependency", "macroregion", "region", "locality", 
+          "localadmin", "macrocounty", "county", "macrohood", "borough", "neighbourhood", 
+          "microhood", "disputed", "postalcode", "continent", "ocean", "marinearea"
+        ]
+      }
+    }
   },
   "schema": {
     "indexName": "pelias"
