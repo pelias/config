@@ -1,9 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
-let localpath;
 
 const Joi = require('joi');
+
+const default_config = require( __dirname + '/config/defaults.json' );
+let localpath = '~/pelias.json'; // default location of pelias.json
 
 // allow the ops guys to override settings on the server
 function generate( schema, deep ){
@@ -32,10 +34,7 @@ function generate( schema, deep ){
   }
 
   return config;
-
 }
-
-const default_config = require( __dirname + '/config/defaults.json' );
 
 function getConfig(deep) {
   // load config from ENV
@@ -53,7 +52,7 @@ function getConfig(deep) {
   }
 }
 
-var config = {
+module.exports = {
   defaults: default_config,
   generate: generate,
   setLocalPath: function( p ){
@@ -61,6 +60,3 @@ var config = {
     return localpath;
   }
 };
-
-config.setLocalPath( '~/pelias.json' );
-module.exports = config;
