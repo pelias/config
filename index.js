@@ -1,9 +1,9 @@
+const fs = require('fs');
+const path = require('path');
+const Mergeable = require('mergeable');
+const defaults = new Mergeable( __dirname + '/config/defaults.json' );
+let localpath;
 
-var fs = require('fs'),
-    path = require('path'),
-    Mergeable = require('mergeable'),
-    defaults = new Mergeable( __dirname + '/config/defaults.json' ),
-    localpath;
 const _ = require('lodash');
 const Joi = require('joi');
 
