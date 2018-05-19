@@ -70,7 +70,7 @@ module.exports.generate.production = function(test) {
     process.env.PELIAS_CONFIG = path.resolve( __dirname + '/../config/env.json' );
 
     var c = config.generate( true );
-    t.deepEqual(c.export(), expected, 'merged as expected');
+    t.deepEqual(c, expected, 'merged as expected');
     t.end();
 
     // unset the PELIAS_CONFIG env var
@@ -110,7 +110,7 @@ module.exports.generate.local = function(test) {
     config.setLocalPath( path.resolve( __dirname + '/../config/env.json' ) );
 
     var c = config.generate( true );
-    t.deepEqual(c.export(), expected, 'merged as expected');
+    t.deepEqual(c, expected, 'merged as expected');
     t.end();
 
     // reset localpath
@@ -129,7 +129,7 @@ module.exports.generate.local = function(test) {
     config.setLocalPath( path.resolve( __dirname + '/../config/local.json' ) );
 
     var c = config.generate( true );
-    t.deepEqual(c.export(), expected, 'merged as expected');
+    t.deepEqual(c, expected, 'merged as expected');
     t.equal(c.imports.geonames.datapath, '~/geonames', 'env paths still set');
     t.end();
 
@@ -151,7 +151,7 @@ module.exports.generate.paths = function(test) {
     process.env.PELIAS_CONFIG = path.resolve(__dirname + '/../config/env.json');
 
     var c = config.generate();
-    t.deepEqual(c.export(), expected, 'loaded absolute file path');
+    t.deepEqual(c, expected, 'loaded absolute file path');
     t.end();
 
     // unset the PELIAS_CONFIG env var
@@ -164,7 +164,7 @@ module.exports.generate.paths = function(test) {
     process.env.PELIAS_CONFIG = './config/env.json';
 
     var c = config.generate();
-    t.deepEqual(c.export(), expected, 'loaded relative file path');
+    t.deepEqual(c, expected, 'loaded relative file path');
     t.end();
 
     // unset the PELIAS_CONFIG env var

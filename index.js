@@ -1,10 +1,8 @@
 const fs = require('fs');
 const path = require('path');
-const Mergeable = require('mergeable');
-const defaults = new Mergeable( __dirname + '/config/defaults.json' );
+const _ = require('lodash');
 let localpath;
 
-const _ = require('lodash');
 const Joi = require('joi');
 
 // allow the ops guys to override settings on the server
@@ -37,29 +35,26 @@ var generate = function( schema, deep ){
 
 };
 
+const default_config = require( __dirname + '/config/defaults.json' );
+
 function getConfig(deep) {
   // load config from ENV
+  let custom_config;
   if( process.env.hasOwnProperty('PELIAS_CONFIG') ){
-    var production = new Mergeable( defaults.export() );
-    var p = path.resolve(process.env.PELIAS_CONFIG);
-    if( true === deep ){ production.deepMergeFromPath( p ); }
-    else { production.shallowMergeFromPath( p ); }
-    return production;
+    custom_config = require( process.env.PELIAS_CONFIG );
+  } else if ( fs.existsSync (localpath) ) {
+    custom_config = require( localpath );
   }
 
-  // load config from local file
-  else if( fs.existsSync( localpath ) ){
-    var local = new Mergeable( defaults.export() );
-    if( true === deep ){ local.deepMergeFromPath( localpath ); }
-    else { local.shallowMergeFromPath( localpath ); }
-    return local;
+  if (deep === true) {
+    return _.merge({}, default_config, custom_config);
+  } else {
+    return _.assign({}, default_config, custom_config);
   }
-  return defaults;
-
 }
 
 var config = {
-  defaults: defaults,
+  defaults: default_config,
   generate: generate,
   setLocalPath: function( p ){
     localpath = p.replace( '~', process.env.HOME );
