@@ -28,22 +28,22 @@ module.exports.generate.development = function(test) {
 module.exports.generate.production = function(test) {
 
   // shallow merging disabled as deep merging should be the default
-  // test('production shallow merge', function(t) {
+  test('production shallow merge', function(t) {
 
-  //   // set the PELIAS_CONFIG env var
-  //   process.env.PELIAS_CONFIG = path.resolve( __dirname + '/../config/env.json' );
+    // set the PELIAS_CONFIG env var
+    process.env.PELIAS_CONFIG = path.resolve( __dirname + '/../config/env.json' );
 
-  //   var c = config.generate();
-  //   t.equal(typeof config, 'object', 'valid function');
-  //   t.notDeepEqual(c, defaults, 'valid function');
-  //   t.equal(typeof c.esclient, 'object', 'valid property');
-  //   t.equal(Object.keys(c.esclient).length, 1, 'deleted all default properties');
-  //   t.equal(c.esclient.hosts.length, 2, 'shallow merge');
-  //   t.end();
+    var c = config.generate(false);
+    t.equal(typeof config, 'object', 'valid function');
+    t.notDeepEqual(c, defaults, 'valid function');
+    t.equal(typeof c.esclient, 'object', 'valid property');
+    t.equal(Object.keys(c.esclient).length, 1, 'deleted all default properties');
+    t.equal(c.esclient.hosts.length, 2, 'shallow merge');
+    t.end();
 
-  //   // unset the PELIAS_CONFIG env var
-  //   delete process.env.PELIAS_CONFIG;
-  // });
+    // unset the PELIAS_CONFIG env var
+    delete process.env.PELIAS_CONFIG;
+  });
 
   test('production deep merge', function(t) {
 
@@ -55,7 +55,7 @@ module.exports.generate.production = function(test) {
     t.notDeepEqual(c, defaults, 'valid function');
     t.equal(typeof c.esclient, 'object', 'valid property');
     t.equal(Object.keys(c.esclient).length, 5, 'keep all default properties');
-    t.equal(c.esclient.hosts.length, 2, 'deep merge');
+    t.equal(c.esclient.hosts.length, 2, 'deep merge should set two hosts');
     t.end();
 
     // unset the PELIAS_CONFIG env var
