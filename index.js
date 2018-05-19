@@ -6,7 +6,7 @@ let localpath;
 const Joi = require('joi');
 
 // allow the ops guys to override settings on the server
-var generate = function( schema, deep ){
+function generate( schema, deep ){
   // if first parameter is a boolean, then it's deep, not a schema
   if (_.isBoolean(schema)) {
     deep = schema;
@@ -33,7 +33,7 @@ var generate = function( schema, deep ){
 
   return config;
 
-};
+}
 
 const default_config = require( __dirname + '/config/defaults.json' );
 
