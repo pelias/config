@@ -7,7 +7,8 @@ const Joi = require('joi');
 const default_config = require( __dirname + '/config/defaults.json' );
 let localpath = '~/pelias.json'; // default location of pelias.json
 
-// allow the ops guys to override settings on the server
+// generate the final configuration, taking into account user overrides
+// as well as preferences for deep or shallow merges
 function generate( schema, deep ){
   // if first parameter is a boolean, then it's deep, not a schema
   if (_.isBoolean(schema)) {
