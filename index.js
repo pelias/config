@@ -5,7 +5,7 @@ const _ = require('lodash');
 const Joi = require('joi');
 
 const default_config = require( __dirname + '/config/defaults.json' );
-let localpath = '~/pelias.json'; // default location of pelias.json
+let localpath = process.env.HOME + '/pelias.json'; // default location of pelias.json
 
 // generate the final configuration, taking into account user overrides
 // as well as preferences for deep or shallow merges
