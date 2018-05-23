@@ -87,8 +87,15 @@ The generated config will be a standard Javascript object:
 var config = require('pelias-config'),
     settings = config.generate();
 
-// strip out all functions etc and produce a plain js object copy
-var copy = settings.export();
+console.log(JSON.stringify(settings, null, 2));
+// {
+//    "api": {
+//       ...
+//    },
+//    "imports": {
+//      ...
+//    }
+//  }
 ```
 
 You can pretty print the generated config with any package you like or with `JSON.stringify`.
