@@ -1,14 +1,15 @@
-
-var fs = require('fs'),
-    path = require('path'),
-    Mergeable = require('mergeable'),
-    defaults = new Mergeable( __dirname + '/config/defaults.json' ),
-    localpath;
+const fs = require('fs');
+const path = require('path');
 const _ = require('lodash');
+
 const Joi = require('joi');
 
-// allow the ops guys to override settings on the server
-var generate = function( schema, deep ){
+const default_config = require( __dirname + '/config/defaults.json' );
+let localpath = process.env.HOME + '/pelias.json'; // default location of pelias.json
+
+// generate the final configuration, taking into account user overrides
+// as well as preferences for deep or shallow merges
+function generate( schema, deep ){
   // if first parameter is a boolean, then it's deep, not a schema
   if (_.isBoolean(schema)) {
     deep = schema;
@@ -34,38 +35,29 @@ var generate = function( schema, deep ){
   }
 
   return config;
-
-};
+}
 
 function getConfig(deep) {
   // load config from ENV
+  let custom_config;
   if( process.env.hasOwnProperty('PELIAS_CONFIG') ){
-    var production = new Mergeable( defaults.export() );
-    var p = path.resolve(process.env.PELIAS_CONFIG);
-    if( true === deep ){ production.deepMergeFromPath( p ); }
-    else { production.shallowMergeFromPath( p ); }
-    return production;
+    custom_config = require( process.env.PELIAS_CONFIG );
+  } else if ( fs.existsSync (localpath) ) {
+    custom_config = require( localpath );
   }
 
-  // load config from local file
-  else if( fs.existsSync( localpath ) ){
-    var local = new Mergeable( defaults.export() );
-    if( true === deep ){ local.deepMergeFromPath( localpath ); }
-    else { local.shallowMergeFromPath( localpath ); }
-    return local;
+  if (deep === true) {
+    return _.merge({}, default_config, custom_config);
+  } else {
+    return _.assign({}, default_config, custom_config);
   }
-  return defaults;
-
 }
 
-var config = {
-  defaults: defaults,
+module.exports = {
+  defaults: default_config,
   generate: generate,
   setLocalPath: function( p ){
     localpath = p.replace( '~', process.env.HOME );
     return localpath;
   }
 };
-
-config.setLocalPath( '~/pelias.json' );
-module.exports = config;

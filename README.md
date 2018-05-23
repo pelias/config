@@ -72,16 +72,16 @@ You can test the result of merging your env config with the following bash oneli
 ```bash
 npm install pelias-config; \
 PELIAS_CONFIG=/path/config.json \
-node -e "console.log( require('pelias-config').generate().stringify() );";
+node -e "console.log( JSON.stringify(require('pelias-config').generate(), null, 2) );";
 ```
 
 ### Validation
 
-Aside from `deep`, the `generate` function takes an additional parameter named `schema` that uses [Joi](https://www.npmjs.com/package/joi) to validate that the configuration is useable.  An error is thrown if the generated configuration does not validate against the schema.  
+Aside from `deep`, the `generate` function takes an additional parameter named `schema` that uses [Joi](https://www.npmjs.com/package/joi) to validate that the configuration is useable.  An error is thrown if the generated configuration does not validate against the schema.
 
 ### Exporting & Debugging
 
-The generated config will be a [mergeable](https://github.com/pelias/mergeable) object:
+The generated config will be a standard Javascript object:
 
 ```javascript
 var config = require('pelias-config'),
@@ -91,16 +91,15 @@ var config = require('pelias-config'),
 var copy = settings.export();
 ```
 
-You can pretty print the generated config:
+You can pretty print the generated config with any package you like or with `JSON.stringify`.
+Using the third parameter to `JSON.stringify` for indentation may be helpful:
 
 ```javascript
 var config = require('pelias-config'),
     settings = config.generate();
 
-console.log( settings.stringify() );
+console.log( JSON.stringify(settings, null, 2) );
 ```
-
-see https://github.com/pelias/mergeable for a full list of methods
 
 ## NPM Module
 
