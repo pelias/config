@@ -41,7 +41,7 @@ function getConfig(deep) {
   // load config from ENV
   let custom_config;
   if( process.env.hasOwnProperty('PELIAS_CONFIG') ){
-    custom_config = require( process.env.PELIAS_CONFIG );
+    custom_config = require( path.resolve(process.env.PELIAS_CONFIG) );
   } else if ( fs.existsSync (localpath) ) {
     custom_config = require( localpath );
   }
