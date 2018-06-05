@@ -185,6 +185,19 @@ module.exports.generate.paths = function(test) {
     delete process.env.PELIAS_CONFIG;
   });
 
+  test('relative paths supported from any location', function (t) {
+    process.chdir('./config');
+    // set the relative PELIAS_CONFIG env var
+    process.env.PELIAS_CONFIG = './env.json';
+
+    var c = config.generate();
+    t.deepEqual(c, expected, 'loaded relative file path');
+    t.end();
+
+    // unset the PELIAS_CONFIG env var
+    delete process.env.PELIAS_CONFIG;
+  });
+
   test('invalid paths in ENV var throws exception', function (t) {
 
     // set the relative PELIAS_CONFIG env var
