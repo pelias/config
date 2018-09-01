@@ -78,7 +78,7 @@ module.exports.generate.production = function(test) {
 
   test('production deep merge as expected', function(t) {
 
-    var expected = require('../config/expected-deep.json');
+    var expected = require('./expected-deep.json');
 
     // set the PELIAS_CONFIG env var
     process.env.PELIAS_CONFIG = path.resolve( __dirname + '/../config/env.json' );
@@ -118,7 +118,7 @@ module.exports.generate.local = function(test) {
 
   test('local deep merge as expected', function(t) {
 
-    var expected = require('../config/expected-deep.json');
+    var expected = require('./expected-deep.json');
 
     // set the localpath
     config.setLocalPath( path.resolve( __dirname + '/../config/env.json' ) );
@@ -134,7 +134,7 @@ module.exports.generate.local = function(test) {
   // if both local and ENV are set, only ENV should be merged
   test('local does not override ENV', function(t) {
 
-    var expected = require('../config/expected-deep.json');
+    var expected = require('./expected-deep.json');
 
     // set the PELIAS_CONFIG env var
     process.env.PELIAS_CONFIG = path.resolve( __dirname + '/../config/env.json' );
@@ -157,7 +157,7 @@ module.exports.generate.local = function(test) {
 
 module.exports.generate.paths = function(test) {
 
-  var expected = require('../config/expected-deep.json');
+  var expected = require('./expected-deep.json');
 
   test('absolute paths supported for ENV var', function (t) {
 
