@@ -16,6 +16,7 @@
     }],
     "log": [{
       "type": "stdio",
+      "json": false,
       "level": [ "error", "warning" ]
     }]
   },
