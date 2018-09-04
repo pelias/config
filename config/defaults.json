@@ -44,12 +44,12 @@
         "openstreetmap": [ "address", "venue", "street" ],
         "openaddresses": [ "address" ],
         "geonames": [
-          "country", "macroregion", "region", "county", "localadmin", "locality", "borough", 
+          "country", "macroregion", "region", "county", "localadmin", "locality", "borough",
           "neighbourhood", "venue"
         ],
         "whosonfirst": [
           "continent", "empire", "country", "dependency", "macroregion", "region", "locality",
-          "localadmin", "macrocounty", "county", "macrohood", "borough", "neighbourhood", 
+          "localadmin", "macrocounty", "county", "macrohood", "borough", "neighbourhood",
           "microhood", "disputed", "venue", "postalcode", "continent", "ocean", "marinearea"
         ]
       },
@@ -61,8 +61,8 @@
       },
       "layer_aliases": {
         "coarse": [
-          "continent", "empire", "country", "dependency", "macroregion", "region", "locality", 
-          "localadmin", "macrocounty", "county", "macrohood", "borough", "neighbourhood", 
+          "continent", "empire", "country", "dependency", "macroregion", "region", "locality",
+          "localadmin", "macrocounty", "county", "macrohood", "borough", "neighbourhood",
           "microhood", "disputed", "postalcode", "continent", "ocean", "marinearea"
         ]
       }
@@ -90,6 +90,9 @@
     "adminLookup": {
       "enabled": true,
       "maxConcurrentRequests": 100
+    },
+    "blacklist": {
+      "files": []
     },
     "geonames": {
       "datapath": "./data",
