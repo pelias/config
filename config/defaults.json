@@ -89,7 +89,8 @@
   "imports": {
     "adminLookup": {
       "enabled": true,
-      "maxConcurrentRequests": 100
+      "maxConcurrentRequests": 100,
+      "usePostalCities": false
     },
     "blacklist": {
       "files": []
