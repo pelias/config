@@ -21,7 +21,17 @@ function generate( schema, deep ){
     deep = true;
   }
 
+  const getFunction = function get(key) {
+    return _.get(this, key);
+  };
+
   const config = getConfig(deep);
+
+  // set 'get' convenience function on returned object
+  Object.defineProperty(config, 'get', {
+    value: getFunction,
+    enumerable: false // allows comparison to `expected.json` in tests
+  });
 
   if (_.isObject(schema)) {
     const result = Joi.validate(config, schema);
