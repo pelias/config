@@ -40,6 +40,7 @@
     "version": "1.0",
     "targets": {
       "auto_discover": false,
+      "canonical_sources": ["whosonfirst", "openstreetmap", "openaddresses", "geonames"],
       "layers_by_source": {
         "openstreetmap": [ "address", "venue", "street" ],
         "openaddresses": [ "address" ],
