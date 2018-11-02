@@ -266,6 +266,36 @@ module.exports.generate.validate = (test) => {
     t.end();
   });
 
+  test('generateDefaults returns default config always', function(t) {
+    // set the PELIAS_CONFIG env var, this config should NOT be used
+    process.env.PELIAS_CONFIG = path.resolve( __dirname + '/../config/env.json' );
+
+    var c = config.generateDefaults();
+    t.deepEqual(c, defaults, 'config object as expected for defaults');
+    t.equal(typeof c.get, 'function', 'has get function');
+    t.end();
+
+    // unset the PELIAS_CONFIG env var
+    delete process.env.PELIAS_CONFIG;
+  });
+
+  test('generateCustom returns defaults with custom settings overridden', function(t) {
+    const custom_config = {
+      api: {
+        customValue: 1, //add a new setting
+      },
+      dbclient: {
+        statFrequency: 5000 // change an existing setting
+      }
+    };
+    const c = config.generateCustom(custom_config);
+    t.equal(c.api.customValue, 1, 'custom value set');
+    t.equal(c.dbclient.statFrequency, 5000, 'custom value set');
+    t.equal(typeof c.get, 'function', 'has get function');
+    t.equal(c.get('unsetValue'), undefined, 'get works as expected');
+    t.equal(c.get('api.indexName'), 'pelias', 'get works as expected');
+    t.end();
+  });
 };
 
 module.exports.all = function (tape) {

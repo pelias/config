@@ -21,17 +21,7 @@ function generate( schema, deep ){
     deep = true;
   }
 
-  const getFunction = function get(key) {
-    return _.get(this, key);
-  };
-
   const config = getConfig(deep);
-
-  // set 'get' convenience function on returned object
-  Object.defineProperty(config, 'get', {
-    value: getFunction,
-    enumerable: false // allows comparison to `expected.json` in tests
-  });
 
   if (_.isObject(schema)) {
     const result = Joi.validate(config, schema);
@@ -47,6 +37,25 @@ function generate( schema, deep ){
   return config;
 }
 
+function generateDefaults() {
+  const default_copy = _.merge({}, default_config);
+
+  return addGetFunction(default_copy);
+}
+
+function generateCustom(custom_config, deep) {
+  let new_config;
+
+  // default to deep if unset
+  if (deep === true || deep === undefined) {
+    new_config = _.merge({}, generateDefaults(), custom_config);
+  } else {
+    new_config = _.assign({}, generateDefaults(), custom_config);
+  }
+
+  return addGetFunction(new_config);
+}
+
 function getConfig(deep) {
   // load config from ENV
   let custom_config;
@@ -56,16 +65,32 @@ function getConfig(deep) {
     custom_config = require( localpath );
   }
 
-  if (deep === true) {
-    return _.merge({}, default_config, custom_config);
-  } else {
-    return _.assign({}, default_config, custom_config);
-  }
+  return generateCustom(custom_config, deep);
+}
+
+/*
+ * Because it's not enumberable, the get function has to be added every time after
+ * cloning an object with _.merge or _.assign
+ */
+function addGetFunction(object) {
+  const getFunction = function get(key) {
+    return _.get(this, key);
+  };
+
+  // set 'get' convenience function on returned object
+  Object.defineProperty(object, 'get', {
+    value: getFunction,
+    enumerable: false // allows comparison to `expected.json` in tests
+  });
+
+  return object;
 }
 
 module.exports = {
   defaults: default_config,
   generate: generate,
+  generateCustom: generateCustom,
+  generateDefaults: generateDefaults,
   setLocalPath: function( p ){
     localpath = p.replace( '~', process.env.HOME );
     return localpath;
