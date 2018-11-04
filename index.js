@@ -24,17 +24,20 @@ function generate( schema, deep ){
   const config = getConfig(deep);
 
   if (_.isObject(schema)) {
-    const result = Joi.validate(config, schema);
-
-    if (result.error) {
-      throw new Error(result.error.details[0].message);
-    }
-
-    return result.value;
-
+    return getValidatedSchema(config, schema);
   }
 
   return config;
+}
+
+function getValidatedSchema(config, schema) {
+  const validationResult = Joi.validate(config, schema);
+
+  if (validationResult.error) {
+    throw new Error(validationResult.error.details[0].message);
+  }
+
+  return addGetFunction(validationResult.value);
 }
 
 function generateDefaults() {

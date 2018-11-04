@@ -221,11 +221,16 @@ module.exports.generate.validate = (test) => {
   });
 
   test('validating schema should not throw an error', (t) => {
+    const schema  = Joi.object().keys({
+      imports: Joi.object()
+    }).unknown(true);
     t.doesNotThrow(() => {
-      config.generate(Joi.object().unknown(true));
+      config.generate(schema);
     });
-    t.end();
 
+    const c = config.generate(schema);
+    t.equals(typeof c.get, 'function', 'config has get function');
+    t.end();
   });
 
   test('returned config should have defaults applied and types converted', (t) => {
