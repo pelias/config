@@ -227,6 +227,9 @@ module.exports.generate.validate = (test) => {
     t.doesNotThrow(() => {
       config.generate(schema);
     });
+
+    const c = config.generate(schema);
+    t.equals(typeof c.get, 'function', 'config has get function');
     t.end();
   });
 
