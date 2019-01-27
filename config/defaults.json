@@ -96,6 +96,8 @@
     "blacklist": {
       "files": []
     },
+    "csv": {
+    },
     "geonames": {
       "datapath": "./data",
       "countryCode": "ALL"
