@@ -106,7 +106,7 @@
       "datapath": "/mnt/pelias/openstreetmap",
       "leveldbpath": "/tmp",
       "import": [{
-        "filename": "planet.osm.pbf"
+        "filename": "planet-latest.osm.pbf"
       }]
     },
     "openaddresses": {
