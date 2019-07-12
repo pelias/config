@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 
 const default_config = require( __dirname + '/config/defaults.json' );
 let localpath = process.env.HOME + '/pelias.json'; // default location of pelias.json

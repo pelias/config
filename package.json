@@ -30,7 +30,7 @@
     "elasticsearch": ">=1.1.1"
   },
   "dependencies": {
-    "joi": "^14.0.0",
+    "@hapi/joi": "^15.1.0",
     "lodash": "^4.17.4"
   },
   "devDependencies": {
