@@ -31,7 +31,7 @@ function generate( schema, deep ){
 }
 
 function getValidatedSchema(config, schema) {
-  const validationResult = Joi.validate(config, schema);
+  const validationResult = schema.validate(config);
 
   if (validationResult.error) {
     throw new Error(validationResult.error.details[0].message);
