@@ -34,7 +34,6 @@
   },
   "api": {
     "accessLog": "common",
-    "textAnalyzer": "libpostal",
     "host": "http://pelias.mapzen.com/",
     "indexName": "pelias",
     "version": "1.0",
