@@ -16,7 +16,6 @@
     }]
   },
   "elasticsearch": {
-    "_type": "doc",
     "settings": {
       "index": {
         "number_of_replicas": "0",
@@ -70,7 +69,8 @@
     }
   },
   "schema": {
-    "indexName": "pelias"
+    "indexName": "pelias",
+    "typeName": "doc"
   },
   "logger": {
     "level": "debug",
