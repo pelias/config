@@ -70,7 +70,7 @@
   },
   "schema": {
     "indexName": "pelias",
-    "typeName": "doc"
+    "typeName": "_doc"
   },
   "logger": {
     "level": "debug",
