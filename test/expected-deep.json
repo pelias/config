@@ -123,6 +123,7 @@
     },
     "whosonfirst": {
       "datapath": "~/whosonfirst",
+      "importPostalcodes": true,
       "importVenues": false
     }
   }
