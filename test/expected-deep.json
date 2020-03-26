@@ -1,6 +1,6 @@
 {
   "esclient": {
-    "apiVersion": "6.8",
+    "apiVersion": "7.x",
     "keepAlive": true,
     "requestTimeout": "120000",
     "hosts": [{
