@@ -114,8 +114,7 @@
     },
     "whosonfirst": {
       "datapath": "/mnt/pelias/whosonfirst",
-      "importPostalcodes": true,
-      "importVenues": false
+      "importPostalcodes": true
     }
   }
 }
