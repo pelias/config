@@ -91,7 +91,7 @@
     "adminLookup": {
       "enabled": true,
       "maxConcurrentRequests": 100,
-      "usePostalCities": false
+      "usePostalCities": true
     },
     "blacklist": {
       "files": []
