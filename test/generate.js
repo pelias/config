@@ -1,7 +1,7 @@
 
-var path = require('path'),
-    config = require('../'),
-    defaults = require('../config/defaults');
+const path = require('path');
+const config = require('../');
+const defaults = require('../config/defaults');
 const Joi = require('@hapi/joi');
 
 module.exports.generate = {};
@@ -264,6 +264,19 @@ module.exports.generate.validate = (test) => {
 
     t.equals(c.get('logger.level'), 'debug', 'get can get keys that exist');
     t.equals(c.get('deeply.nested.path.that.does.not.exist'), undefined, 'get returns undefined for non-existent nested paths');
+
+    // unset the PELIAS_CONFIG env var
+    delete process.env.PELIAS_CONFIG;
+
+    t.end();
+  });
+
+  test('get function supports defaultValue', (t) => {
+    // set the PELIAS_CONFIG env var
+    process.env.PELIAS_CONFIG = path.resolve(__dirname + '/../config/env.json');
+    const c = config.generate();
+
+    t.equals(c.get('foo', 'DEFAULT'), 'DEFAULT', 'default value used for keys that do not exist');
 
     // unset the PELIAS_CONFIG env var
     delete process.env.PELIAS_CONFIG;
