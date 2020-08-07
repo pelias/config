@@ -74,15 +74,14 @@ function getConfig(deep) {
 /*
  * Because it's not enumberable, the get function has to be added every time after
  * cloning an object with _.merge or _.assign
+ *
+ * see: https://lodash.com/docs/4.17.15#get
  */
 function addGetFunction(object) {
-  const getFunction = function get(key) {
-    return _.get(this, key);
-  };
 
   // set 'get' convenience function on returned object
   Object.defineProperty(object, 'get', {
-    value: getFunction,
+    value: _.get.bind(null, object),
     enumerable: false // allows comparison to `expected.json` in tests
   });
 
