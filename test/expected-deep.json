@@ -43,7 +43,7 @@
     "host": "http://pelias.mapzen.com/",
     "version": "1.0",
     "targets": {
-      "auto_discover": false,
+      "auto_discover": true,
       "canonical_sources": ["whosonfirst", "openstreetmap", "openaddresses", "geonames"],
       "layers_by_source": {
         "openstreetmap": [ "address", "venue", "street" ],
