@@ -55,7 +55,7 @@
         "whosonfirst": [
           "continent", "empire", "country", "dependency", "macroregion", "region", "locality",
           "localadmin", "macrocounty", "county", "macrohood", "borough", "neighbourhood",
-          "microhood", "disputed", "venue", "postalcode", "continent", "ocean", "marinearea"
+          "microhood", "disputed", "venue", "postalcode", "ocean", "marinearea"
         ]
       },
       "source_aliases": {
@@ -68,7 +68,7 @@
         "coarse": [
           "continent", "empire", "country", "dependency", "macroregion", "region", "locality",
           "localadmin", "macrocounty", "county", "macrohood", "borough", "neighbourhood",
-          "microhood", "disputed", "postalcode", "continent", "ocean", "marinearea"
+          "microhood", "disputed", "postalcode", "ocean", "marinearea"
         ]
       }
     }
