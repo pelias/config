@@ -8,7 +8,6 @@
 This repository defines standard configuration for all parts of the Pelias geocoder. It contains tools for Pelias packages to read from configuration in a standardized way, and for Pelias users to set up their own configuration.
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/pelias/config.svg)](https://greenkeeper.io/)
-[![Build Status](https://travis-ci.org/pelias/config.png?branch=master)](https://travis-ci.org/pelias/config)
 
 [![NPM](https://nodei.co/npm/pelias-config.png?downloads=true&stars=true)](https://nodei.co/npm/pelias-config)
 
@@ -128,4 +127,4 @@ $ npm test
 
 ### Continuous Integration
 
-Travis tests every release against all supported Node.js versions.
+CI tests every release against all supported Node.js versions.
