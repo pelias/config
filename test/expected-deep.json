@@ -111,6 +111,7 @@
     },
     "openaddresses": {
       "datapath": "~/openaddresses",
+      "token": "oa.bbbcf5787bb4251445883cc417f811ba02b9fd64809fd56c5a972171fbcfb2f6",
       "files": [
         "us-ny-nyc.csv"
       ]
