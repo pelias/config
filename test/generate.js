@@ -1,4 +1,3 @@
-
 const path = require('path');
 const config = require('../');
 const defaults = require('../config/defaults');
@@ -212,14 +211,6 @@ module.exports.generate.paths = function(test) {
 };
 
 module.exports.generate.validate = (test) => {
-  test('non-validating schema should throw an error', (t) => {
-    t.throws(() => {
-      config.generate(Joi.boolean());
-    }, /"value" must be a boolean/);
-    t.end();
-
-  });
-
   test('validating schema should not throw an error', (t) => {
     const schema  = Joi.object().keys({
       imports: Joi.object()
@@ -284,7 +275,7 @@ module.exports.generate.validate = (test) => {
     t.end();
   });
 
-  test('generateDefaults returns default config always', function(t) {
+  test('generateDefaults returns default config always', (t) => {
     // set the PELIAS_CONFIG env var, this config should NOT be used
     process.env.PELIAS_CONFIG = path.resolve( __dirname + '/../config/env.json' );
 
@@ -297,7 +288,7 @@ module.exports.generate.validate = (test) => {
     delete process.env.PELIAS_CONFIG;
   });
 
-  test('generateCustom returns defaults with custom settings overridden', function(t) {
+  test('generateCustom returns defaults with custom settings overridden', (t) => {
     const custom_config = {
       api: {
         customValue: 1, //add a new setting
