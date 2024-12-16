@@ -1,8 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
-
-const Joi = require('@hapi/joi');
+const global_schema = require('./schema');
 
 const default_config = require( __dirname + '/config/defaults.json' );
 let localpath = process.env.HOME + '/pelias.json'; // default location of pelias.json
@@ -23,7 +22,9 @@ function generate( schema, deep ){
 
   const config = getConfig(deep);
 
-  if (_.isObject(schema)) {
+  // Pelias-config is always an object, so we don't expect
+  // any other joi schema type.
+  if (_.isObject(schema) && schema.type === 'object') {
     return getValidatedSchema(config, schema);
   }
 
@@ -31,7 +32,8 @@ function generate( schema, deep ){
 }
 
 function getValidatedSchema(config, schema) {
-  const validationResult = schema.validate(config);
+  const commonSchema = global_schema.concat(schema);
+  const validationResult = commonSchema.validate(config);
 
   if (validationResult.error) {
     throw new Error(validationResult.error.details[0].message);
