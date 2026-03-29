@@ -16,8 +16,8 @@ module.exports.generate.development = function(test) {
     t.equal(typeof config, 'object', 'valid function');
     t.deepEqual(c, defaults, 'defaults');
     t.equal(typeof c.esclient, 'object', 'valid property');
-    t.equal(Object.keys(c.esclient).length, 5, 'copied all default properties');
-    t.equal(c.esclient.hosts.length, 1, 'defaults');
+    t.equal(Object.keys(c.esclient).length, 2, 'copied all default properties');
+    t.equal(c.esclient.nodes.length, 1, 'defaults');
     t.end();
 
     // reset localpath
@@ -37,7 +37,7 @@ module.exports.generate.production = function(test) {
     t.notDeepEqual(c, defaults, 'valid function');
     t.equal(typeof c.esclient, 'object', 'valid property');
     t.equal(Object.keys(c.esclient).length, 1, 'deleted all default properties');
-    t.equal(c.esclient.hosts.length, 2, 'shallow merge');
+    t.equal(c.esclient.nodes.length, 2, 'shallow merge');
     t.end();
 
     // unset the PELIAS_CONFIG env var
@@ -52,8 +52,8 @@ module.exports.generate.production = function(test) {
     t.equal(typeof config, 'object', 'valid function');
     t.notDeepEqual(c, defaults, 'valid function');
     t.equal(typeof c.esclient, 'object', 'valid property');
-    t.equal(Object.keys(c.esclient).length, 5, 'keep all default properties');
-    t.equal(c.esclient.hosts.length, 2, 'deep merge should set two hosts');
+    t.equal(Object.keys(c.esclient).length, 2, 'keep all default properties');
+    t.equal(c.esclient.nodes.length, 2, 'deep merge should set two nodes');
     t.end();
 
     // unset the PELIAS_CONFIG env var
@@ -68,8 +68,8 @@ module.exports.generate.production = function(test) {
     t.equal(typeof config, 'object', 'valid function');
     t.notDeepEqual(c, defaults, 'valid function');
     t.equal(typeof c.esclient, 'object', 'valid property');
-    t.equal(Object.keys(c.esclient).length, 5, 'keep all default properties');
-    t.equal(c.esclient.hosts.length, 2, 'deep merge should set two hosts');
+    t.equal(Object.keys(c.esclient).length, 2, 'keep all default properties');
+    t.equal(c.esclient.nodes.length, 2, 'deep merge should set two nodes');
     t.end();
 
     // unset the PELIAS_CONFIG env var
@@ -103,7 +103,7 @@ module.exports.generate.local = function(test) {
     t.equal(typeof config, 'object', 'valid function');
     t.notDeepEqual(c, defaults, 'valid function');
     t.equal(typeof c.esclient, 'object', 'valid property');
-    t.equal(Object.keys(c.esclient).length, 5, 'keep all default properties');
+    t.equal(Object.keys(c.esclient).length, 2, 'keep all default properties');
     t.equal(c.interpolation.client.adapter, 'http', 'interpolation client');
     t.equal(c.interpolation.client.host, 'http://localhost:9999', 'interpolation client');
     t.equal(c.imports.geonames.datapath, '/media/hdd', 'local paths');
