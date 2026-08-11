@@ -1,24 +1,7 @@
 {
   "esclient": {
-    "apiVersion": "7.x",
-    "keepAlive": true,
     "requestTimeout": "120000",
-    "hosts": [{
-       "env": "production",
-       "protocol": "http",
-       "host": "localhost",
-       "port": 9200
-     },{
-       "env": "production",
-       "protocol": "http",
-       "host": "localhost",
-       "port": 9300
-    }],
-    "log": [{
-      "type": "stdio",
-      "json": false,
-      "level": [ "error", "warning" ]
-    }]
+    "nodes": ["http://localhost:9200", "http://localhost:9300"]
   },
   "elasticsearch": {
     "settings": {
